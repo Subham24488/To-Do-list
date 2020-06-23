@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+
+<link rel="stylesheet" href="css/styles.css">
+
+  </head>
+  <body>
+<div class="box" id="heading">
+  <h1>It's <%=FOO%>.</h1>
+
+</div>
+
+<div class="box">
+
+  <% TASKS.forEach(function(tasks){ %>
+
+<form  action="/delete" method="post">
+  <div class="item">
+    <input type="checkbox" name="checkbox" value="<%=tasks._id%>" onChange="this.form.submit()">
+    <p><%=tasks.name%></p>
+  </div>
+  <input type="hidden" name="listName" value="<%=FOO%>"></input>
+</form>
+
+<%});%>
+
+
+
+<form class="item" action="/" method="post">
+  <input type="text" name="newTask" placeholder="New Item">
+  <button type="submit" name="list" value="<%=FOO%>">+</button>
+</form>
+
+</div>
+  </body>
+</html>
